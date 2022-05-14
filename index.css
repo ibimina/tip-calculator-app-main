@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture,
+img {
+  margin: 0;
+}
+/* make images easier to work with */
+img,
+picutre {
+  max-width: 100%;
+  display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+
+  border: 0;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(185, 41%, 84%);
+  font-size: 16px;
+  font-family: "Space Mono", monospace;
+}
+
+header {
+  padding: 2rem;
+  text-align: center;
+  color: hsl(183, 100%, 15%);
+}
+main {
+  background-color: hsl(0, 0%, 100%);
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.bill,
+.select,
+.person {
+  color: hsl(186, 14%, 43%);
+  margin-bottom: 0.5rem;
+}
+#bill,
+#person {
+  width: 100%;
+  background-color: hsl(189, 41%, 97%);
+  border: 0;
+  position: relative;
+  padding: 0.7rem;
+  border-radius: 10px;
+  margin-bottom: 1.8rem;
+  text-align: end;
+  cursor: pointer;
+}
+.dollar-icon {
+  position: absolute;
+  top: 14.3rem;
+  left: 3rem;
+}
+.tip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.tip button {
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  color: hsl(185, 41%, 84%);
+  background-color: hsl(183, 100%, 15%);
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.tip input.custom {
+  width: 100%;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(186, 14%, 43%);
+  text-align: end;
+  padding-right: 0.8rem;
+  cursor: pointer;
+  color: hsl(183, 100%, 15%);
+  border-radius: 10px;
+  border: 0;
+}
+.tip button:hover {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+.tip button:focus {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+.tip input:hover,
+.tip input:focus,
+#bill:hover,
+#bill:focus {
+  outline: 1px solid hsl(172, 67%, 45%);
+}
+.person-icon {
+  position: absolute;
+  left: 3rem;
+  top: 35.3rem;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.one {
+  width: 100%;
+}
+.cal-tip {
+  background-color: hsl(183, 100%, 15%);
+  padding: 1rem;
+  width: 100%;
+  border-radius: 10px;
+}
+.amount,
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.amounttext,
+.totaltext {
+  color: hsl(185, 41%, 84%);
+}
+.tip-amount,
+.total-tip {
+  color: hsl(172, 67%, 45%);
+  font-size: 24px;
+}
+.person {
+  color: hsl(186, 14%, 43%);
+}
+.error {
+  outline: 1px solid red;
+  border-radius: 5px;
+}
+.errortext {
+  display: none;
+  text-align: end;
+  margin-left: 6rem;
+  color: red;
+}
+.reset {
+  width: 100%;
+  border: 0;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+.reset:hover {
+  cursor: pointer;
+  filter: brightness(100%) contrast(280%);
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+@media (min-width: 55rem) {
+  body {
+    display: grid;
+    justify-content: center;
+    padding-bottom: 9rem;
+  }
+
+  main {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+    height: 365px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    gap: 2rem;
+  }
+  #bill {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+  #person {
+    padding: 0.5rem;
+  }
+  .dollar-icon {
+    left: 13rem;
+    top: 14.2rem;
+  }
+  .person-icon {
+    top: 29rem;
+    left: 13rem;
+  }
+  .tip {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1rem;
+  }
+  .reset {
+    margin-top: 4rem;
+  }
+  .errortext {
+    margin-left: 7rem;
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+
+@media (min-width:80rem) {
+  .dollar-icon {
+    left: 21rem;
+    top: 18.5rem;
+  }
+  .person-icon {
+    top: 33rem;
+    left: 21rem;
+  }
+}
+@media (min-width:85rem) {
+  .dollar-icon {
+    left: 23.5rem;
+    top: 14.2rem;
+  }
+  .person-icon {
+    top: 29rem;
+    left: 23.5rem;
+  }
+}
