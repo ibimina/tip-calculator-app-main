@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - Solution URL:(https://github.com/ibimina/tip-calculator-app-main)
-- Live Site URL:(https://ibimina.github.oi/tip-calculator-app-main/)
+- Live Site URL:(https://ibimina.github.io/tip-calculator-app-main/)
 
 ## My process
 This was a HTML,CSS,JS build.I created the mobile app first, I starte creating the Html structure.Then built out the CSS,added media queries to make a desktop version. JS last for functionality.
@@ -57,6 +57,20 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+I Used this to as  backgroundimage instead of positioning it absolute and readjusting it at different screen size
+
+#bill{
+  background-image: url(images/icon-dollar.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 1rem;
+}
+#person{
+  background-image: url(images/icon-person.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 1rem;
 }
 ```
 
@@ -101,12 +115,6 @@ customPercent.addEventListener("input", (e) => {
 //   totalCal();
 });
 ```
-
-
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
 
 

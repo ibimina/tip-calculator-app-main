@@ -101,11 +101,19 @@ main {
   text-align: end;
   cursor: pointer;
 }
-.dollar-icon {
-  position: absolute;
-  top: 14.3rem;
-  left: 3rem;
+#bill{
+  background-image: url(images/icon-dollar.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 1rem;
 }
+#person{
+  background-image: url(images/icon-person.svg);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 1rem;
+}
+
 .tip {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -147,11 +155,7 @@ main {
 #bill:focus {
   outline: 1px solid hsl(172, 67%, 45%);
 }
-.person-icon {
-  position: absolute;
-  left: 3rem;
-  top: 35.3rem;
-}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -241,14 +245,7 @@ input[type="number"]::-webkit-outer-spin-button {
   #person {
     padding: 0.5rem;
   }
-  .dollar-icon {
-    left: 13rem;
-    top: 14.2rem;
-  }
-  .person-icon {
-    top: 29rem;
-    left: 13rem;
-  }
+
   .tip {
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 1rem;
@@ -267,23 +264,3 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-@media (min-width:80rem) {
-  .dollar-icon {
-    left: 21rem;
-    top: 18.5rem;
-  }
-  .person-icon {
-    top: 33rem;
-    left: 21rem;
-  }
-}
-@media (min-width:85rem) {
-  .dollar-icon {
-    left: 23.5rem;
-    top: 14.2rem;
-  }
-  .person-icon {
-    top: 29rem;
-    left: 23.5rem;
-  }
-}
