@@ -1,52 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link rel="stylesheet" href="index.css" />
-    <title>Frontend Mentor | Tip calculator app</title>
-  </head>
-  <body>
-    <header>
-      <h1>
-        SPLI <br />
-        TTER
-      </h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <main>
-      <div class="one">
-        <form class="getBill">
-          <label for="bill" class="bill">Bill</label>
-          <input type="number" name="bill" id="bill" placeholder="$0.00" />
-      
-        </form>
-        <p class="select">Select Tip %</p>
-        <form class="tip">
-          <button class="five onee" value="0.05">5%</button>
-          <button class="ten onee" value="0.1">10%</button>
-          <button class="fifteen onee" value="0.15">15%</button>
-          <button class="twenty-five onee" value="0.25">25%</button>
-          <button class="fifty onee" value="0.50">50%</button>
-          <input class="custom" type="number" placeholder="Custom" />
-        </form>
-        <form class="people">
-          <label for="person" class="person">Number of People</label>
-          <p class="errortext">Can't be zero</p>
-          <input type="number" name="person" id="person" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link rel="stylesheet" href="index.css" />
+  <title>Frontend Mentor | Tip calculator app</title>
+</head>
 
-       
-        </form>
+<body>
+  <header>
+    <h1>
+      SPLITTER
+    </h1>
+  </header>
+
+  <main>
+
+    <form class="one">
+      <div class="getBill">
+        <label for="bill" class="bill">Bill</label>
+        <input type="number" step="any" name="bill" id="bill" placeholder="$0.00" />
+
       </div>
+      <p class="select">Select Tip %</p>
+      <div class="tip">
+        <label class="five onee">
+          <input type="radio" name="percent" value="0.05" class="btn">
+          <span>5%</span>
+        </label>
+        <label class="ten onee">
 
-      <section class="cal-tip">
+          <input type="radio" name="percent" value="0.1" class="btn">
+          <span>10%</span>
+        </label>
+        <label class="fifteen onee">
+
+          <input type="radio" name="percent" value="0.15" class="btn">
+          <span>15%</span>
+        </label>
+
+        <label class="twenty-five onee">
+
+          <input type="radio" name="percent" value="0.25" class="btn">
+          <span>25%</span>
+        </label>
+        <label class="fifty onee">
+
+          <input type="radio" name="percent" value="0.50" class="btn">
+          <span>50%</span>
+        </label>
+
+        <input class="custom" type="number" placeholder="Custom" />
+      </div>
+      <div class="people">
+        <label class="person input-per">
+          <div class="flex">
+            <span>Number of People</span>
+            <p class="errortext">Can't be zero</p>
+          </div>
+
+          <input type="number" name="people" id="person" />
+        </label>
+
+
+        <input type="submit" value="submit" class="submit">
+      </div>
+    </form>
+
+    <section class="cal-tip">
+      <div>
         <div class="amount">
           <div>
             <p class="amounttext">Tip Amount</p>
@@ -61,18 +86,20 @@
           </div>
           <p class="total-tip">$0.00</p>
         </div>
-        <button type="reset" class="reset">RESET</button>
-      </section>
-    </main>
+      </div>
 
-    <footer class="attribution">
-      <p>
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Ibimina Hart</a>.
-      </p>
-    </footer>
-    <script src="index.js"></script>
-  </body>
+      <button type="reset" class="reset">RESET</button>
+    </section>
+  </main>
+
+  <footer class="attribution">
+    <p>
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
+        href="#">Ibimina Hart</a>.
+    </p>
+  </footer>
+  <script src="index.js"></script>
+</body>
+
 </html>

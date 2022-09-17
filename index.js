@@ -1,112 +1,69 @@
-const getBill = document.querySelector(".getBill");
-const tipPercent = document.querySelectorAll(".onee");
 const people = document.querySelector(".people");
-const input = document.querySelector("#bill");
-const customPercent = document.querySelector(".custom");
-
-let inputBill, inputPeople, inputAge, percent, tipAmount;
-
-getBill.addEventListener("input", (e) => {
-  let inputValue = getBill.bill.value.trim();
-  inputBill = Number(inputValue);
-  // console.log(inputBill);
-
-  //   cal();
-  //   totalCal();
-});
-
-tipPercent.forEach((element) => {
-   
-  element.addEventListener("click", (e) => {
-    e.preventDefault();
-    
-    let perValue = e.target.value;
-    perValue.checked = true;
-    
-    if (perValue) {
-      customPercent.value = "";
-
-      percent = Number(perValue);
-       element.classList.add("class", "active");
-    }
-
-    console.log(perValue);
-    // cal();
-    // totalCal();
-  });
-});
-
-customPercent.addEventListener("input", (e) => {
-  e.preventDefault();
-
-  let perValue = e.target.value;
-  if (perValue > 0) {
-    tipPercent.forEach((element) => {
-      perValue.checked = false;
-    });
-    percent = Number(perValue) / 100;
-  } else {
-    perValue = "";
-  }
-
-  console.log(perValue);
-//   cal();
-//   totalCal();
-});
-
 const errorText = document.querySelector(".errortext");
 const border = document.querySelector("#person");
-people.addEventListener("input", (e) => {
-  e.preventDefault();
+const custom = document.querySelector(".custom");
+const getradioBtn = document.querySelectorAll(".btn");
+let customValue, radioValue, val;
 
-  let perValue = e.target.value;
-  inputPeople = Number(perValue);
-  if (inputPeople <= 0) {
+people.addEventListener("input", (e) => {
+  if (e.target.value <= 0) {
     errorText.style.display = "inline";
     border.setAttribute("class", "error");
-    console.log(errorText);
   } else {
     errorText.style.display = "none";
     border.removeAttribute("class", "error");
-    cal();
-    totalCal();
   }
-
-
 });
-const tip = document.querySelector(".tip-amount");
-const totalTip = document.querySelector(".total-tip");
-const cal = () => {
-  tipAmount = ((inputBill / inputPeople) * percent).toFixed(2);
-//   console.log(tipAmount);
-  //totalCal()
-  tip.textContent = `$${tipAmount}`;
-};
 
-const totalCal = () => {
-  // console.log(to)
-  if (inputBill !== 0 && inputPeople !== 0 && percent !== 0) {
-    let to = (
-      inputBill / inputPeople +
-      (inputBill / inputPeople) * percent
-    ).toFixed(2);
 
-    totalTip.textContent = `$${to}`;
+
+custom.addEventListener("input", (e) => {
+  getradioBtn.forEach((element) => {
+    element.checked = false;
+  });
+
+  if (e.target.value > 0) {
+    customValue = e.target.value.trim();
+    val = Number(customValue) / 100;
+    radioValue = "";
   }
-};
-const resetButton = document.querySelector(".reset");
-const reset = () => {
-  //   inputBill = "";
-  //   inputPeople = "";
-  // percent = "";
-  getBill.bill.value = "";
-  customPercent.value = "";
-  border.value = "";
-  totalTip.textContent = `$0.00`;
-  tip.textContent = `$0.00`;
-};
-resetButton.addEventListener("click", (e) => {
+});
+
+
+getradioBtn.forEach((radioBtn) => {
+  radioBtn.addEventListener("click", (e) => {
+    if (radioBtn.checked) {
+      if (customValue !== undefined) {
+        custom.value = "";
+      }
+      radioValue = e.target.value;
+      val = Number(radioValue);
+      console.log(val);
+    }
+  });
+});
+
+const getForm = document.querySelector(".one");
+
+getForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("a");
-  reset();
+
+  let bill = Number(getForm.bill.value.trim());
+  let people = Number(getForm.people.value);
+  if (bill && val && people) {
+
+    let ti = ((bill * val) / people).toFixed(2);
+    document.querySelector(".tip-amount").textContent = "$" + ti;
+    document.querySelector(".total-tip").textContent =
+      "$" + (bill / people + Number(ti)).toFixed(2);
+  } else if (!people) {
+    errorText.style.display = "inline";
+     border.setAttribute("class", "error");
+  }
+});
+
+document.querySelector(".reset").addEventListener("click", () => {
+  getForm.reset();
+  document.querySelector(".total-tip").textContent = "$0.00";
+  document.querySelector(".tip-amount").textContent = "$0.00";
 });

@@ -68,89 +68,91 @@ body {
 }
 
 header {
-  padding: 2rem;
+  padding: 2em 0;
   text-align: center;
   color: hsl(183, 100%, 15%);
 }
 main {
   background-color: hsl(0, 0%, 100%);
-  width: 100%;
-  display: flex;
-  /* justify-content: center; */
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 2rem;
+  padding: 1em;
+  margin: 2em auto;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 .bill,
-.select,
-.person {
+.select {
   color: hsl(186, 14%, 43%);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
 #bill,
 #person {
   width: 100%;
   background-color: hsl(189, 41%, 97%);
   border: 0;
-  position: relative;
-  padding: 0.7rem;
+  padding: 1em;
   border-radius: 10px;
-  margin-bottom: 1.8rem;
   text-align: end;
-  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 1em;
 }
-#bill{
+#bill {
   background-image: url(images/icon-dollar.svg);
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 1rem;
+  margin-bottom: 1em;
 }
-#person{
+#person {
   background-image: url(images/icon-person.svg);
-  background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: 1rem;
+  margin-bottom: 1em;
 }
 
 .tip {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1em;
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
 }
-.tip button {
-  padding-top: 0.7rem;
-  padding-bottom: 0.7rem;
-  color: hsl(185, 41%, 84%);
-  background-color: hsl(183, 100%, 15%);
+
+.onee {
   border: 0;
-  border-radius: 5px;
   cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 .tip input.custom {
   width: 100%;
   background-color: hsl(189, 41%, 97%);
   color: hsl(186, 14%, 43%);
   text-align: end;
-  padding-right: 0.8rem;
-  cursor: pointer;
+  padding: 0.5em;
   color: hsl(183, 100%, 15%);
   border-radius: 10px;
   border: 0;
 }
-.tip button:hover {
+.onee span {
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(185, 41%, 84%);
+  /* width: 100%; */
+  padding: 1em;
+  display: block;
+  border-radius: 5px;
+}
+.onee input:checked ~ span,
+.onee span:hover {
   background-color: hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
 }
-.tip button:focus {
-  background-color: hsl(172, 67%, 45%);
-  color: hsl(183, 100%, 15%);
-}
-.tip input:hover,
-.tip input:focus,
+
 #bill:hover,
 #bill:focus {
   outline: 1px solid hsl(172, 67%, 45%);
@@ -162,12 +164,10 @@ input[type="number"]::-webkit-outer-spin-button {
   -moz-appearance: none;
   appearance: none;
 }
-.one {
-  width: 100%;
-}
+
 .cal-tip {
   background-color: hsl(183, 100%, 15%);
-  padding: 1rem;
+  padding: 1em;
   width: 100%;
   border-radius: 10px;
 }
@@ -176,7 +176,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1rem;
+  margin-bottom: 1em;
 }
 .amounttext,
 .totaltext {
@@ -197,18 +197,42 @@ input[type="number"]::-webkit-outer-spin-button {
 .errortext {
   display: none;
   text-align: end;
-  margin-left: 6rem;
   color: red;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
 }
 .reset {
   width: 100%;
   border: 0;
   background-color: hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   border-radius: 10px;
-  margin-top: 1rem;
+  padding: 1em;
+}
+.input-per {
+  margin-bottom: 2em;
+}
+.people {
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+.submit {
+  border: 0;
+  border-radius: 10px;
+  color: hsl(172, 67%, 45%);
+  background-color: hsl(172, 22%, 13%);
+  text-transform: capitalize;
+  width: 100%;
+  padding: 1em;
+  cursor: pointer;
+}
+.submit:hover {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(172, 22%, 13%);
 }
 .reset:hover {
   cursor: pointer;
@@ -221,46 +245,43 @@ input[type="number"]::-webkit-outer-spin-button {
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
-@media (min-width: 55rem) {
-  body {
-    display: grid;
-    justify-content: center;
-    padding-bottom: 9rem;
-  }
-
+@media (min-width: 60rem) {
   main {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
     max-width: 700px;
-    height: 365px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    gap: 2rem;
+    gap: 2em;
   }
-  #bill {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
+  .people {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1em;
+    align-items: flex-end;
   }
+  .input-per,
   #person {
-    padding: 0.5rem;
+    margin-bottom: 0em;
   }
 
+  .cal-tip {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .tip {
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 1rem;
   }
-  .reset {
-    margin-top: 4rem;
+  .flex {
+    flex-direction: column;
   }
   .errortext {
-    margin-left: 7rem;
-  }
-  footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    text-align: start;
   }
 }
-
