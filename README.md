@@ -23,7 +23,7 @@ Users should be able to:
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Calculate the correct tip and total cost of the bill per person
-
+- Added a submit buttom 
 ### Screenshot
 
 ![image](tipcal.png)
@@ -35,8 +35,6 @@ Users should be able to:
 - Live Site URL:(https://ibimina.github.io/tip-calculator-app-main/)
 
 ## My process
-
-This was a HTML,CSS,JS build.I created the mobile app first, I starte creating the Html structure.Then built out the CSS,added media queries to make a desktop version. JS last for functionality.
 
 ### Built with
 
@@ -65,7 +63,6 @@ input[type="number"]::-webkit-outer-spin-button {
   background-position-x: 1rem;
 }
 ```
-
 
 ### Useful resources
 
